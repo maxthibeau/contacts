@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="contacts.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="display-3"> Address Book</h1>
+    <h1>Contacts</h1>
+    <table class="table">
+        <thead>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Phone Number </th>
+        </thead>
+        <tbody>
+            <tr th:each="contact : ${contacts}" th:id="${contact.id}">
+                <td><span th:text="${contact.firstName}"> First Name
+                    </span></td>
+                <td><span th:text="${contact.lastName}"> Last Name </span></td>
+                <td><span th:text="${contact.phoneNumber}"> Phone Number
+                    </span></td>
+                <td>
+                    <button id="updateContact"type="button"
+                            class="btn btn-secondary">update
+                        contact
+                    </button>
+                </td>
+                <td>
+                    <a
+                            th:href="@{/contacts/delete/{id}(id=${contact.id})}">
+                        <button type="button" class="btn btn-danger">
+                            delete contact</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/contacts/create">
+        <button type="button" class="btn btn-primary">create
+            contact</button>
+    </a>
+
+    <h1 class="display-5">Coworkers</h1>
+    <table class="table">
+        <thead>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Phone Number </th>
+        <th> Email Address </th>
+        </thead>
+        <tbody>
+        <tr th:each="coworker : ${coworkers}" th:id="${coworker.id}">
+            <td><span th:text="${coworker.firstName}"> First Name
+                    </span></td>
+            <td><span th:text="${coworker.lastName}"> Last Name
+            </span></td>
+            <td><span th:text="${coworker.phoneNumber}"> Phone Number
+                    </span></td>
+            <td><span th:text="${coworker.emailAddress}">Email
+            </span></td>
+            <td>
+                <button id="updateCoworker"type="button"
+                        class="btn btn-secondary">update
+                    coworker
+                </button>
+            </td>
+            <td>
+                <a
+                        th:href="@{/coworkers/delete/{id}(id=${coworker.id})}">
+                    <button type="button" class="btn btn-danger">
+                        delete coworker</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/coworkers/create">
+        <button type="button" class="btn btn-primary">create
+            coworker</button>
+    </a>
+
+    <h1 class="display-5">Friends</h1>
+    <table class="table">
+        <thead>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Phone Number </th>
+        <th> Email Address </th>
+        <th> Birth Date</th>
+        </thead>
+        <tbody>
+        <tr th:each="friend : ${friends}" th:id="${friend.id}">
+            <td><span th:text="${friend.firstName}"> First Name
+                    </span></td>
+            <td><span th:text="${friend.lastName}"> Last Name
+            </span></td>
+            <td><span th:text="${friend.phoneNumber}"> Phone Number
+                    </span></td>
+            <td><span th:text="${friend.emailAddress}">Email
+            </span></td>
+            <td><span th:text="${friend.birthDate}">Email
+            </span></td>
+            <td>
+                <button id="updateFriend"type="button"
+                        class="btn btn-secondary">update
+                    friend
+                </button>
+            </td>
+            <td>
+                <a
+                        th:href="@{/friends/delete/{id}(id=${friend.id})}">
+                    <button type="button" class="btn btn-danger">
+                        delete friend</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/friends/create">
+        <button type="button" class="btn btn-primary">create
+            friend</button>
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
